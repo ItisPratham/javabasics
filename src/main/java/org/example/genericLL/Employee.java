@@ -23,5 +23,4 @@ public class Employee {
         System.out.println("Employee ID : " + eid + "Inhand Salary : " + getInhandSalary());
     }
 
-
 }
