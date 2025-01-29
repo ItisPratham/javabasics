@@ -13,7 +13,7 @@ public class StackQueuesProgramming {
         q.add("cardigan");
         q.add("afterglow");
         System.out.println("Before : "+q);// given in question paper
-        alphabetize(q);
+        alphabetize2(q);
         System.out.println("After : "+q);
     }
     public static void s2q(Stack<String> s, Queue<String> q) {// given
@@ -24,6 +24,42 @@ public class StackQueuesProgramming {
     public static void q2s(Queue<String> q, Stack<String> s) {// given
         while (!q.isEmpty()) {
             s.push(q.remove());
+        }
+    }
+
+    public static void alphabetize2(Queue<String> q){
+        if(q.isEmpty()){
+            return;
+        }
+        int size;
+        Queue<String> q1 = new LinkedList<>();
+        size = q.size();
+        for(int i = 0; i <size; i++) {
+            if (q.peek().charAt(0) == 'a') {
+                q1.offer(q.poll());
+            } else {
+                q.offer(q.poll());
+            }
+        }
+        size = q.size();
+        for(int i = 0; i <size; i++) {
+            if (q.peek().charAt(0) == 'b') {
+                q1.offer(q.poll());
+            } else {
+                q.offer(q.poll());
+            }
+        }
+        size = q.size();
+        for(int i = 0; i <size; i++) {
+            if (q.peek().charAt(0) == 'c') {
+                q1.offer(q.poll());
+            } else {
+                q.offer(q.poll());
+            }
+        }
+
+        while(!q1.isEmpty()){
+            q.offer(q1.poll());
         }
     }
     public static void alphabetize(Queue<String> q){ // created static method to avoid need to create an instance
